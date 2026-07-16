@@ -1,0 +1,70 @@
+.hero-home{
+    background-image:url("../img/Home.img.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:60vh;
+    position:relative;
+}
+
+.hero-home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.25);
+}
+
+.hero-home .container{
+    position:relative;
+    z-index:2;
+}
+
+.testimonials-home{
+    background-image:url("../img/Home.img.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:50vh;
+    position:relative;
+}
+
+.testimonials-home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+}
+
+.testimonials-home .container{
+    position:relative;
+    z-index:2;
+}
+
+.newsletter-home{
+    background-image:url("../img/Home.img.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height:50vh;
+    position:relative;
+    transform:scaleX(-1);
+}
+
+/* scaleX(-1) mirrors the whole section so the dino
+   moves to the right leaving space for the text on the left.
+   We un-mirror the container so text reads correctly. */
+.newsletter-home .container{
+    transform:scaleX(-1);
+}
+
+.newsletter-home::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+}
+
+.newsletter-home .container{
+    position:relative;
+    z-index:2;
+}

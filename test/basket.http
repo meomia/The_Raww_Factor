@@ -1,0 +1,74 @@
+### Test 1 - Create basket for user 1
+POST http://localhost:3000/users/1/basket HTTP/1.1
+content-type: application/json
+
+###
+
+### Test 2 - Try to create basket for user 1 again (should fail)
+POST http://localhost:3000/users/1/basket HTTP/1.1
+content-type: application/json
+
+###
+
+### Test 3 - Get basket for user 1
+GET http://localhost:3000/users/1/basket HTTP/1.1
+content-type: application/json
+
+###
+
+### Test 4 - Get basket for user that doesnt exist
+GET http://localhost:3000/users/999/basket HTTP/1.1
+content-type: application/json
+
+###
+
+### Test 5 - Add product to basket for user 1
+PUT http://localhost:3000/users/1/basket/items HTTP/1.1
+content-type: application/json
+
+{
+  "productId": 2,
+  "name": "Tyrannosaurus Rex",
+  "price": 5000
+}
+
+###
+
+### Test 6 - Add same product again (quantity should increase to 2)
+PUT http://localhost:3000/users/1/basket/items HTTP/1.1
+content-type: application/json
+
+{
+  "productId": 2,
+  "name": "Tyrannosaurus Rex",
+  "price": 5000
+}
+
+###
+
+### Test 7 - Add a different product
+PUT http://localhost:3000/users/1/basket/items HTTP/1.1
+content-type: application/json
+
+{
+  "productId": 5,
+  "name": "Pterodactyl",
+  "price": 2200
+}
+
+###
+
+### Test 8 - Remove Tyrannosaurus Rex from basket
+DELETE http://localhost:3000/users/1/basket/items/2 HTTP/1.1
+
+###
+
+### Test 9 - Remove product that doesnt exist in basket
+DELETE http://localhost:3000/users/1/basket/items/999 HTTP/1.1
+
+###
+
+### Test 10 - Remove from basket that doesnt exist
+DELETE http://localhost:3000/users/999/basket/items/2 HTTP/1.1
+
+###

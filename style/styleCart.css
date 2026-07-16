@@ -1,0 +1,206 @@
+/* =========================================================
+   SHOPPING CART PAGE
+   ========================================================= */
+
+/* ── 1. BODY & PAGE BACKGROUND ───────────────────────────
+   --------------------------------------------------------- */
+body {
+    background-color: var(--bg) !important;
+}
+
+/* ── 2. PAGE HEADER ───────────────────────────────────────
+   --------------------------------------------------------- */
+.cart-header {
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.cart-header h1 {
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+}
+
+.cart-header p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* ── 3. CART ITEM ROW ─────────────────────────────────────
+   --------------------------------------------------------- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: var(--radius-surface);
+    flex-shrink: 0;
+    background-color: var(--surface2);
+}
+
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-category {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.3rem;
+}
+
+.cart-item-price {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--accent);
+}
+
+/* ── 4. QUANTITY CONTROLS ─────────────────────────────────
+   --------------------------------------------------------- */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.qty-controls .btn-outline-secondary {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: var(--border) !important;
+    color: var(--muted) !important;
+    background: transparent !important;
+    border-radius: 50% !important;
+    font-size: 0.9rem;
+}
+
+.qty-controls .btn-outline-secondary:hover {
+    background-color: var(--surface2) !important;
+    color: var(--text) !important;
+}
+
+.qty-controls .fw-bold {
+    color: var(--text);
+    min-width: 24px;
+    text-align: center;
+}
+
+/* ── 5. REMOVE BUTTON ─────────────────────────────────────
+   --------------------------------------------------------- */
+.btn-outline-danger {
+    border-color: var(--orange) !important;
+    color: var(--orange) !important;
+    background: transparent !important;
+    border-radius: var(--radius-btn) !important;
+    font-size: 0.8rem !important;
+    padding: 0.3rem 0.8rem !important;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--orange) !important;
+    color: #fff !important;
+}
+
+/* ── 6. SUBTOTAL TEXT ─────────────────────────────────────
+   --------------------------------------------------------- */
+.cart-item-subtotal {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+}
+
+/* ── 7. ORDER SUMMARY CARD ────────────────────────────────
+   --------------------------------------------------------- */
+.order-summary {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+
+}
+
+.order-summary h2 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+}
+
+.order-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+    font-size: 0.9rem;
+}
+
+.order-summary .summary-row span:first-child {
+    color: var(--muted);
+}
+
+.order-summary .summary-row span:last-child {
+    color: var(--text);
+}
+
+.order-summary .summary-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-weight: 700;
+}
+
+.order-summary .summary-total span:first-child {
+    color: var(--text);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+}
+
+.order-summary .summary-total span:last-child {
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+}
+
+/* ── 8. CART CARDS ────────────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow-sm,
+.card {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.card:hover { transform: none !important; }
+
+.h4 {
+    color: var(--text) !important;
+    font-family: var(--font-heading) !important;
+}
+
+hr { border-color: var(--border) !important; }

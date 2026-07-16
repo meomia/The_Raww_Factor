@@ -1,0 +1,13 @@
+.DS_Store
+/node_modules/bootstrap-icons/icons
+/node_modules/@popperjs/core/lib/utils
+/node_modules/@popperjs
+/node_modules
+/node_modules
+/node_modules
+/node_modules/path-to-regexp
+node_modules/path-to-regexp/LICENSE
+/node_modules/path-to-regexp
+/node_modules
+node_modules/path-to-regexp/package.json
+*.md

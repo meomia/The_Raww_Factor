@@ -1,0 +1,46 @@
+.section-kicker {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.hero-about{
+  background-image: url("/img/AboutUsImg.png");
+  background-size:cover;
+  background-position:center;
+  min-height:60vh;
+  position:relative;
+}
+
+.hero-about::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.35);
+}
+
+.hero-about .container{
+position:relative;
+z-index:2;
+}
+
+.cta-about{
+background-image: url("/img/AboutUsImg.png");
+background-size:cover;
+background-position:center;
+min-height:50vh;
+position:relative;
+}
+
+.cta-about::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.35);
+}
+
+.cta-about .container{
+position:relative;
+z-index:2;
+}

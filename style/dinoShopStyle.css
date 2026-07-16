@@ -1,0 +1,176 @@
+#all-dino-products #product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+
+#all-dino-products .product-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+    min-width: 220px;
+    box-sizing: border-box;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+#all-dino-products .product-card .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    flex: 1 1 auto;
+}
+
+#all-dino-products .product-card .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 576px) {
+    #all-dino-products .product-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+#all-dino-products .product-card .btn {
+    width: 100%;
+}
+/* =========================================================
+   THEME OVERRIDES FOR DINO SHOP PAGE
+   ========================================================= */
+
+/* ── 1. BODY BACKGROUND ───────────────────────────────────
+   --------------------------------------------------------- */
+body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+/* ── 2. SECTION HEADINGS AND TEXT ─────────────────────────
+   --------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text) !important;
+    font-family: var(--font-heading) !important;
+}
+
+p, .text-muted {
+    color: var(--muted) !important;
+}
+
+/* ── 3. FILTER DROPDOWNS ──────────────────────────────────
+   --------------------------------------------------------- */
+.form-select,
+select {
+    background-color: var(--surface) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+    font-family: var(--font-body) !important;
+}
+
+.form-select:focus,
+select:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(105, 240, 174, 0.1) !important;
+}
+
+/* ── 4. TESTIMONIAL CARDS ─────────────────────────────────
+   --------------------------------------------------------- */
+.card.border-0.shadow-sm {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--text) !important;
+}
+
+.card.border-0.shadow-sm h5 {
+    color: var(--text) !important;
+}
+
+.card.border-0.shadow-sm .text-muted {
+    color: var(--muted) !important;
+}
+
+/* ── 5. VIP SECTION CARDS ─────────────────────────────────
+   --------------------------------------------------------- */
+.card.h-100.border-0.shadow-sm {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.card.h-100.border-0.shadow-sm .card-title {
+    color: var(--text) !important;
+    font-family: var(--font-heading) !important;
+}
+
+.card.h-100.border-0.shadow-sm .card-text {
+    color: var(--muted) !important;
+}
+
+/* ── 6. CAROUSEL ──────────────────────────────────────────
+   --------------------------------------------------------- */
+.carousel-item h2 {
+    color: var(--text) !important;
+    font-family: var(--font-heading) !important;
+}
+
+.carousel-item p.text-muted {
+    color: var(--muted) !important;
+}
+
+.carousel-item p.text-uppercase {
+    color: var(--accent) !important;
+    font-family: var(--font-heading) !important;
+    letter-spacing: 3px;
+}
+
+/* ── 7. HERO SECTION TEXT ─────────────────────────────────
+   --------------------------------------------------------- */
+.display-4 {
+    color: var(--text) !important;
+    font-family: var(--font-heading) !important;
+}
+
+/* ── FIX IMAGE FILL ───────────────────────────────────────
+   --------------------------------------------------------- */
+#all-dino-products .product-card .card-img-top {
+    object-fit: cover !important;
+}
+
+/* ── FIX IMAGE ALIGNMENT ──────────────────────────────────
+   --------------------------------------------------------- */
+#all-dino-products .product-image-wrap {
+    height: 220px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+}
+ 
+#all-dino-products .product-image-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    padding: 0 !important;
+}
+
+/* ── FIX BUTTON WRAPPING IN PRODUCT CARDS ─────────────────
+   fully rounded buttons are too wide for the card at
+   mid-size viewports causing text to wrap.
+   We reduce padding and font size so both buttons
+   fit side by side without breaking.
+   --------------------------------------------------------- */
+#all-dino-products .product-card .d-flex.gap-2 .btn {
+    padding: 0.45rem 0.6rem !important;
+    font-size: 0.78rem !important;
+    white-space: nowrap;
+}
+
+/* ── CARD CONTRAST FIX ────────────────────────────────────
+   --------------------------------------------------------- */
+#all-dino-products .product-card {
+    background-color: var(--surface2) !important;
+}

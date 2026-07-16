@@ -1,0 +1,192 @@
+/* =========================================================
+   FORMS PAGES: Login / Create Account / Contact
+   ========================================================= */
+
+/* ── 1. BODY BACKGROUND ───────────────────────────────────
+   --------------------------------------------------------- */
+body {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+}
+
+/* ── 1b. HEADINGS AND SUBTITLES OUTSIDE THE CARD ─────────
+   --------------------------------------------------------- */
+.form-page-section h1,
+.form-page-section p.text-muted.mb-4 {
+    color: var(--text) !important;
+}
+
+.form-page-section p.text-muted.mb-4 {
+    color: var(--muted) !important;
+    font-family: var(--font-body);
+}
+
+/* ── 2. PAGE SECTION WRAPPER ──────────────────────────────
+   --------------------------------------------------------- */
+.form-page-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+}
+
+/* ── 3. FORM CARD — BACKGROUND & BORDER ──────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 {
+    background-color: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-card) !important;
+    color: var(--text) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+
+/* ── 4. CANCEL HOVER LIFT ON FORM CARDS ──────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4:hover {
+    transform: none !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4) !important;
+}
+
+/* ── 5. CARD BODY ─────────────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 .card-body {
+    background-color: var(--surface) !important;
+    color: var(--text) !important;
+}
+
+/* ── 6. HEADINGS INSIDE FORM ──────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 h1,
+.card.shadow.p-4 h2 {
+    color: var(--text) !important;
+    font-family: var(--font-heading);
+}
+
+/* ── 7. MUTED TEXT ────────────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 .text-muted,
+.form-page-section .text-muted {
+    color: var(--muted) !important;
+}
+
+/* ── 8. INPUT TEXT COLOR ──────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 input,
+.card.shadow.p-4 textarea,
+.card.shadow.p-4 select {
+    color: var(--text) !important;
+    background-color: var(--bg) !important;
+    border-color: var(--border) !important;
+}
+
+.card.shadow.p-4 input::placeholder,
+.card.shadow.p-4 textarea::placeholder {
+    color: var(--muted) !important;
+    opacity: 0.6;
+}
+
+.card.shadow.p-4 input:focus,
+.card.shadow.p-4 textarea:focus {
+    color: var(--text) !important;
+    background-color: var(--bg) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 3px rgba(105, 240, 174, 0.1) !important;
+}
+
+/* ── 9. FORM CHECK LABEL ──────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 .form-check-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* ── 10. SUBMIT BUTTON ────────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 .btn-primary,
+.card.shadow.p-4 button[type="submit"] {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: var(--bg) !important;
+    font-family: var(--font-body) !important;
+    font-weight: 800 !important;
+    border-radius: var(--radius-btn) !important;
+}
+
+.card.shadow.p-4 .btn-primary:hover,
+.card.shadow.p-4 button[type="submit"]:hover {
+    background-color: var(--accent-hover) !important;
+    border-color: var(--accent-hover) !important;
+    color: var(--bg) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-accent) !important;
+}
+
+/* ── 11. LINKS INSIDE FORM ────────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 a {
+    color: var(--accent);
+}
+
+.card.shadow.p-4 a:hover {
+    color: var(--text);
+}
+
+/* ── 12. SUCCESS / ERROR MESSAGES ─────────────────────────
+   --------------------------------------------------------- */
+.text-success {
+    color: var(--accent) !important;
+}
+
+/* ── 13. CONTACT PAGE SPECIFIC ────────────────────────────
+   --------------------------------------------------------- */
+.form-page-cta {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+}
+
+.form-page-cta h2 {
+    color: var(--text);
+    font-family: var(--font-heading);
+}
+
+.form-page-cta .text-muted {
+    color: var(--muted) !important;
+}
+
+.contact-visual-card {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.contact-visual-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ── 14. LINKS BELOW THE CARD ─────────────────────────────
+   --------------------------------------------------------- */
+.card.shadow.p-4 p.text-center {
+    font-family: var(--font-body);
+    color: var(--muted);
+}
+
+.card.shadow.p-4 p.text-center a {
+    font-family: var(--font-body);
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.card.shadow.p-4 p.text-center a:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* ── 15. DATE INPUT CALENDAR ICON ────────────────────────
+   --------------------------------------------------------- */
+input[type="date"] {
+    color-scheme: dark;
+}

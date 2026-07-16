@@ -1,0 +1,1146 @@
+/* =========================================================
+   01. IMPORT FONTS
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300;400;600;700&family=Nunito:wght@300;400;600;700;800&display=swap');
+
+/* =========================================================
+   02. CSS VARIABLES
+   ========================================================= */
+:root {
+  /* Colors */
+  --bg: #0D1F15;
+  --surface: #152A1E;
+  --surface2: #1C3526;
+  --text: #E8F5E9;
+  --muted: #81C784;
+  --accent: #69F0AE;
+  --accent-hover: #89F7C0;
+  --yellow: #FFD54F;
+  --orange: #FF8A65;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Borders / shadows */
+  --border: rgba(105, 240, 174, 0.12);
+  --border-strong: rgba(105, 240, 174, 0.25);
+  --ring: rgba(105, 240, 174, 0.10);
+  --shadow-accent: 0 8px 24px rgba(105, 240, 174, 0.25);
+  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.30);
+
+  /* Radius */
+  --radius-card: 12px;
+  --radius-surface: 8px;
+  --radius-tag: 6px;
+  --radius-badge: 4px;
+  --radius-btn: 50px;
+
+  /* Typography */
+  --font-heading: 'Cascadia Mono', monospace;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Font sizes */
+  --fs-h1: 56px;
+  --fs-h2: 36px;
+  --fs-h3: 24px;
+  --fs-h4: 18px;
+  --fs-label: 12px;
+  --fs-body-lg: 18px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --fs-btn: 16px;
+  --fs-btn-sm: 0.95rem;
+  --fs-btn-card: 0.85rem;
+  --fs-era: 0.7rem;
+
+  /* Line heights */
+  --lh-heading-lg: 1.05;
+  --lh-heading: 1.3;
+  --lh-body: 1.7;
+
+  /* Letter spacing */
+  --ls-h1: -1px;
+  --ls-label: 3px;
+  --ls-era: 1px;
+  --ls-tag: 0.5px;
+  --ls-badge: 1px;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 48px;
+  --space-2xl: 80px;
+
+  /* Section spacing */
+  --section-y-mobile: 48px;
+  --section-y-desktop: 80px;
+
+  /* Transitions */
+  --transition: all 0.2s ease;
+  --transition-slow: all 0.25s ease;
+
+  /* Navbar */
+  --navbar-bg: rgba(13, 31, 21, 0.92);
+  --navbar-blur: blur(12px);
+
+  /* Bootstrap variable bridges */
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-primary: var(--accent);
+  --bs-secondary: var(--surface);
+  --bs-border-color: var(--border);
+}
+
+/* =========================================================
+   03. RESET / BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover,
+a:focus {
+  color: var(--text);
+}
+
+ul,
+ol {
+  padding-left: 1.2rem;
+}
+
+::selection {
+  background: rgba(105, 240, 174, 0.25);
+  color: var(--text);
+}
+
+/* =========================================================
+   04. TYPOGRAPHY
+   ========================================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  color: var(--text);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading-lg);
+  letter-spacing: var(--ls-h1);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading-lg);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-heading);
+  font-weight: 600;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+small,
+.text-small {
+  font-size: var(--fs-small);
+  color: var(--muted);
+}
+
+.text-muted,
+.muted {
+  color: var(--muted) !important;
+}
+
+.text-accent {
+  color: var(--accent) !important;
+}
+
+.text-orange {
+  color: var(--orange) !important;
+}
+
+.text-yellow {
+  color: var(--yellow) !important;
+}
+
+.section-kicker,
+.section-label,
+.eyebrow,
+.overline {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--accent);
+}
+
+.body-lg,
+.hero-copy {
+  font-size: var(--fs-body-lg);
+  color: var(--text);
+}
+
+.lead-muted {
+  color: var(--muted);
+}
+
+/* =========================================================
+   05. SECTION SPACING / LAYOUT
+   ========================================================= */
+section {
+  padding-top: var(--section-y-mobile);
+  padding-bottom: var(--section-y-mobile);
+}
+
+@media (min-width: 992px) {
+  section {
+    padding-top: var(--section-y-desktop);
+    padding-bottom: var(--section-y-desktop);
+  }
+}
+
+.section-tight {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.section-panel {
+  background: linear-gradient(
+    90deg,
+    rgba(21, 42, 30, 0.96) 0%,
+    rgba(13, 31, 21, 0.98) 50%,
+    rgba(21, 42, 30, 0.96) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+}
+
+.surface {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.surface-2 {
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-surface);
+}
+
+.inner-surface {
+  background-color: rgba(21, 42, 30, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.border-subtle {
+  border: 1px solid var(--border) !important;
+}
+
+.rounded-card {
+  border-radius: var(--radius-card) !important;
+}
+
+.rounded-surface {
+  border-radius: var(--radius-surface) !important;
+}
+
+/* =========================================================
+   06. NAVBAR
+   ========================================================= */
+.custom-navbar {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-surface);
+    margin: 15px auto;
+    padding: 10px 20px;
+    width: 95%;
+}
+
+/* Why: sticky must be on the placeholder div that wraps
+   the navbar, not on the navbar itself, because the
+   injected nav is a child element and sticky only works
+   on direct children of the scrollable container. */
+#navbar-placeholder {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; 
+    align-items: center;
+    width: 100%;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+}
+
+.custom-nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.custom-nav-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.custom-nav-link:hover {
+    color: var(--accent);
+}
+
+/* Active page highlight in navbar
+   Why: Shows the user which page they are currently on.
+   Uses a bottom border in accent color to underline the
+   active link, matching common web navigation conventions. */
+.active-nav-link {
+    color: var(--accent) !important;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+}
+
+.custom-brand {
+    color: var(--accent);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-search {
+    font-family: var(--font-body);
+    background-color: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: var(--radius-btn);
+    padding: 5px 15px;
+    outline: none;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    font-size: 1.8rem;
+}
+
+.nav-icon {
+    color: var(--accent);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-icon:hover {
+    color: var(--text);
+}
+
+/* =========================================================
+   07. BUTTONS
+   ========================================================= */
+.btn {
+  border-radius: var(--radius-btn);
+  transition: var(--transition);
+  font-family: var(--font-body);
+  font-size: var(--fs-btn-sm);
+  font-weight: 800;
+  padding: 0.75rem 2rem;
+  box-shadow: none;
+}
+
+.btn:focus,
+.btn:active:focus {
+  box-shadow: 0 0 0 0.2rem var(--ring);
+}
+
+.btn-raww-primary,
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--bg);
+  border: none;
+}
+
+.btn-raww-primary:hover,
+.btn-raww-primary:focus,
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--accent-hover);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+}
+
+.btn-raww-outline,
+.btn-outline-primary {
+  background-color: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+
+.btn-raww-outline:hover,
+.btn-raww-outline:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: rgba(105, 240, 174, 0.08);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-add-to-basket,
+.btn-card {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-btn);
+  border: 1.5px solid var(--border);
+  background-color: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-btn-card);
+  font-weight: 700;
+  transition: var(--transition-slow);
+}
+
+.btn-add-to-basket:hover,
+.btn-add-to-basket:focus,
+.btn-card:hover,
+.btn-card:focus {
+  background-color: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+/* Small / utility buttons */
+.btn-sm-pill {
+  padding: 0.55rem 1.25rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-btn);
+}
+
+/* =========================================================
+   08. FORM INPUTS
+   ========================================================= */
+label,
+.form-label {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+}
+
+.form-control,
+.form-select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="password"] {
+  background-color: var(--bg);
+  color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 0.7rem 1.2rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-control::placeholder,
+.form-select::placeholder,
+textarea::placeholder,
+input::placeholder {
+  color: var(--muted);
+  opacity: 0.5;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus,
+input:focus {
+  background-color: var(--bg);
+  color: var(--text);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.form-check-input {
+  background-color: var(--surface);
+  border-color: var(--border);
+}
+
+.form-check-input:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem var(--ring);
+}
+
+/* =========================================================
+   09. CARDS
+   ========================================================= */
+.card {
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: var(--transition-slow);
+  box-shadow: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  color: var(--text);
+}
+
+.card-text {
+  color: var(--muted);
+}
+
+/* =========================================================
+   10. PRODUCT CARDS
+   ========================================================= */
+.product-card {
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: var(--transition-slow);
+  height: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card);
+}
+
+.product-image-wrap,
+.card-img-wrap {
+  position: relative;
+  background-color: var(--surface2);
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image-wrap img,
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-slow);
+}
+
+.product-card:hover .product-image-wrap img,
+.card:hover .card-img-wrap img {
+  transform: scale(1.03);
+}
+
+.product-card-body {
+  padding: 0.8rem 0.8rem 1.4rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Why: Fixed height on both title and meta area ensures
+   every card has identical spacing before the button.
+   overflow: hidden on meta clips any extra tags that
+   would otherwise push the button down. */
+.product-card-body .product-title {
+    min-height: 2.6rem;
+}
+
+.product-card-body .product-meta {
+    height: 56px;
+    overflow: hidden;
+    align-content: flex-start;
+}
+
+.product-era,
+.card-era {
+  margin-bottom: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: var(--fs-era);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-era);
+}
+
+.product-title {
+  margin-bottom: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+}
+
+.product-price {
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.product-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.active-thumb {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   11. TAGS & BADGES
+   ========================================================= */
+.tag,
+.diet-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-tag);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: var(--ls-tag);
+  line-height: 1.2;
+}
+
+.tag-carnivore,
+.diet-tag.carnivore {
+  background-color: rgba(255, 138, 101, 0.15);
+  color: var(--orange);
+}
+
+.tag-herbivore,
+.diet-tag.herbivore {
+  background-color: rgba(105, 240, 174, 0.15);
+  color: var(--accent);
+}
+
+.tag-omnivore,
+.diet-tag.omnivore {
+  background-color: rgba(255, 213, 79, 0.15);
+  color: var(--yellow);
+}
+
+.tag-environment{
+    background: rgba(129,199,132,0.15);
+    color: var(--muted);
+}
+
+.tag-license{
+    background: rgba(255,138,101,0.15);
+    color: var(--orange);
+}
+
+.badge,
+.product-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-badge);
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: var(--ls-badge);
+  text-transform: uppercase;
+}
+
+.badge-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+.badge-new {
+  background-color: var(--accent);
+  color: var(--bg);
+}
+
+.badge-hot {
+  background-color: var(--yellow);
+  color: var(--bg);
+}
+
+.badge-sale {
+  background-color: var(--orange);
+  color: var(--white);
+}
+
+/* =========================================================
+   12. IMAGE / PLACEHOLDER HELPERS
+   ========================================================= */
+.img-placeholder,
+.placeholder-image {
+  background-color: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--muted);
+  font-family: var(--font-heading);
+  text-align: center;
+}
+
+.img-square {
+  aspect-ratio: 1 / 1;
+}
+
+.img-hero {
+  min-height: 320px;
+}
+
+.object-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =========================================================
+   13. HERO
+   ========================================================= */
+.hero-section {
+  background-color: var(--bg);
+}
+
+.hero-title {
+  max-width: 12ch;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* =========================================================
+   14. FEATURE / INFO BLOCKS
+   ========================================================= */
+.feature-card {
+  height: 100%;
+  padding: 1.5rem;
+  background-color: rgba(21, 42, 30, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+.feature-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.feature-title {
+  margin-bottom: 0.5rem;
+}
+
+/* =========================================================
+   15. NEWSLETTER / CTA
+   ========================================================= */
+.newsletter-panel {
+  padding: 2rem;
+  background: linear-gradient(
+    90deg,
+    rgba(21, 42, 30, 0.96) 0%,
+    rgba(13, 31, 21, 0.98) 50%,
+    rgba(21, 42, 30, 0.96) 100%
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+}
+
+/* =========================================================
+   16. FOOTER
+   ========================================================= */
+footer,
+.site-footer {
+  background-color: var(--bg);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.site-footer a,
+footer a {
+  color: var(--muted);
+}
+
+.site-footer a:hover,
+footer a:hover {
+  color: var(--text);
+}
+
+/* =========================================================
+   17. UTILITIES
+   ========================================================= */
+.bg-raww {
+  background-color: var(--bg) !important;
+}
+
+.bg-surface {
+  background-color: var(--surface) !important;
+}
+
+.bg-surface-2 {
+  background-color: var(--surface2) !important;
+}
+
+.text-raww {
+  color: var(--text) !important;
+}
+
+.text-raww-muted {
+  color: var(--muted) !important;
+}
+
+.text-raww-accent {
+  color: var(--accent) !important;
+}
+
+.border-raww {
+  border-color: var(--border) !important;
+}
+
+.shadow-raww {
+  box-shadow: var(--shadow-card) !important;
+}
+
+.radius-btn {
+  border-radius: var(--radius-btn) !important;
+}
+
+.radius-card {
+  border-radius: var(--radius-card) !important;
+}
+
+.gap-raww {
+  gap: var(--space-lg);
+}
+
+.spec-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.9rem;
+  margin: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+}
+
+.spec-chip strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* =========================================================
+   18. BOOTSTRAP OVERRIDES
+   ========================================================= */
+.bg-body,
+.bg-body-tertiary,
+.bg-light,
+.bg-white {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+.text-dark {
+  color: var(--text) !important;
+}
+
+.border,
+.table,
+.table td,
+.table th,
+.accordion-item,
+.modal-content,
+.dropdown-menu,
+.list-group-item {
+  border-color: var(--border) !important;
+}
+
+.table,
+.accordion-item,
+.modal-content,
+.dropdown-menu,
+.list-group-item {
+  background-color: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+.dropdown-item {
+  color: var(--muted);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--surface2);
+  color: var(--text);
+}
+
+.accordion-button {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--surface2);
+  color: var(--text);
+  box-shadow: inset 0 -1px 0 var(--border);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem var(--ring);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--border);
+}
+
+.list-group-item {
+  color: var(--text);
+}
+
+.pagination .page-link {
+  background-color: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.pagination .page-link:hover {
+  background-color: var(--surface2);
+  color: var(--text);
+}
+
+.pagination .active .page-link {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+/* =========================================================
+   19. RESPONSIVE TYPOGRAPHY
+   ========================================================= */
+@media (max-width: 991.98px) {
+  h1 {
+    font-size: 42px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .body-lg,
+  .hero-copy {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 17px;
+  }
+
+  .section-panel,
+  .newsletter-panel {
+    padding: 1.25rem;
+  }
+
+  .btn,
+  .btn-raww-primary,
+  .btn-raww-outline {
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+}
+
+/* =========================================================
+   20. ACCESSIBILITY / MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   21. ICON EFFECT
+   ========================================================= */
+
+#auth-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+#auth-area a {
+    text-decoration: none;
+    color: #b9ffd7;;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#auth-area a:hover {
+    text-decoration: underline;
+}
+
+#auth-area .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.search-wrapper {
+    max-width: 180px;
+    flex-shrink: 1;
+}
+
+.custom-search {
+    width: 100%;
+}
